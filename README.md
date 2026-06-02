@@ -16,7 +16,7 @@
     font-family:'Segoe UI',sans-serif;
 }
 
-/* FUNDO GERAL */
+/* FUNDO */
 body{
     background:linear-gradient(135deg,#FFE082,#FFF3C4);
     color:#333;
@@ -59,7 +59,6 @@ button{
 
 button:hover{
     transform:scale(1.05);
-    background:#FFCA28;
 }
 
 /* DASHBOARD */
@@ -73,7 +72,6 @@ header{
     color:white;
     text-align:center;
     padding:30px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 header h1{
@@ -102,12 +100,7 @@ header h1{
     border-radius:15px;
     text-align:center;
     box-shadow:0 8px 20px rgba(0,0,0,0.12);
-    transition:0.3s;
     border-top:5px solid #43A047;
-}
-
-.card:hover{
-    transform:translateY(-8px);
 }
 
 .card h3{
@@ -180,8 +173,8 @@ td{
 <!-- INTRO -->
 <div id="intro">
     <h1>🌬 Energia Eólica</h1>
-    <p>Projeto sobre implementação de energia eólica na zona rural com análise 5W2H, indicadores e gráficos de desempenho sustentável.</p>
-    <button onclick="iniciar()">Iniciar Projeto</button>
+    <p>Projeto sobre implementação de energia eólica na zona rural com gráficos, indicadores e análise 5W2H.</p>
+    <button id="btnIniciar">Iniciar Projeto</button>
 </div>
 
 <!-- DASHBOARD -->
@@ -193,7 +186,6 @@ td{
 
 <div class="container">
 
-<!-- CARDS -->
 <div class="cards">
 
 <div class="card">
@@ -218,16 +210,14 @@ td{
 
 </div>
 
-<!-- INTRO TEXTO -->
 <div class="section">
 <h2>Introdução</h2>
 <p>
-A energia eólica é uma fonte renovável que utiliza a força dos ventos para gerar eletricidade.
-Na zona rural, ela permite maior independência energética, redução de custos e sustentabilidade ambiental.
+A energia eólica é uma fonte renovável que utiliza a força dos ventos para gerar eletricidade,
+promovendo sustentabilidade e redução de custos na zona rural.
 </p>
 </div>
 
-<!-- GRÁFICOS -->
 <div class="graficos">
 
 <div class="section">
@@ -236,35 +226,34 @@ Na zona rural, ela permite maior independência energética, redução de custos
 </div>
 
 <div class="section">
-<h2>Comparação de Impacto Ambiental</h2>
+<h2>Impacto Ambiental</h2>
 <canvas id="grafico2"></canvas>
 </div>
 
 </div>
 
-<!-- 5W2H -->
 <div class="section">
+
 <h2>Pesquisa 5W2H</h2>
 
 <table>
 <tr><th>Item</th><th>Descrição</th></tr>
-<tr><td>What</td><td>Implantação de energia eólica na zona rural</td></tr>
+<tr><td>What</td><td>Energia eólica na zona rural</td></tr>
 <tr><td>Why</td><td>Reduzir custos e impacto ambiental</td></tr>
-<tr><td>Where</td><td>Propriedades rurais</td></tr>
+<tr><td>Where</td><td>Áreas rurais</td></tr>
 <tr><td>When</td><td>Após estudo técnico</td></tr>
-<tr><td>Who</td><td>Engenheiros e produtores rurais</td></tr>
+<tr><td>Who</td><td>Engenheiros e produtores</td></tr>
 <tr><td>How</td><td>Instalação de aerogeradores</td></tr>
-<tr><td>How Much</td><td>Varia conforme projeto</td></tr>
+<tr><td>How Much</td><td>Depende do projeto</td></tr>
 </table>
 
 </div>
 
-<!-- CONCLUSÃO -->
 <div class="section">
 <h2>Conclusão</h2>
 <p>
-A energia eólica representa uma solução sustentável e eficiente para o meio rural,
-promovendo economia, autonomia e preservação ambiental.
+A energia eólica é uma solução sustentável e eficiente para o meio rural,
+trazendo economia e preservação ambiental.
 </p>
 </div>
 
@@ -273,12 +262,13 @@ promovendo economia, autonomia e preservação ambiental.
 
 <script>
 
-function iniciar(){
-    document.getElementById("intro").style.display="none";
-    document.getElementById("dashboard").style.display="block";
-}
+/* BOTÃO FUNCIONANDO */
+document.getElementById("btnIniciar").addEventListener("click", function(){
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+});
 
-/* GRAFICO 1 */
+/* GRÁFICO 1 */
 new Chart(document.getElementById('grafico1'),{
 type:'bar',
 data:{
@@ -291,7 +281,7 @@ backgroundColor:'#43A047'
 }
 });
 
-/* GRAFICO 2 */
+/* GRÁFICO 2 */
 new Chart(document.getElementById('grafico2'),{
 type:'doughnut',
 data:{
@@ -308,7 +298,5 @@ backgroundColor:['#43A047','#FDD835','#1E88E5','#FB8C00','#424242']
 </body>
 </html>
 
-  
-  
-    
+
 
