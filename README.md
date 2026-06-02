@@ -25,7 +25,6 @@ header{
     padding:40px 20px;
     background:linear-gradient(90deg,#2E7D32,#43A047);
     color:white;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
 header h1{
@@ -34,7 +33,19 @@ header h1{
 
 header p{
     margin-top:10px;
-    font-size:18px;
+}
+
+/* IMAGEM PRINCIPAL */
+.hero{
+    width:100%;
+    height:350px;
+    overflow:hidden;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* CONTAINER */
@@ -45,7 +56,7 @@ header p{
     padding:30px 0;
 }
 
-/* CARDS */
+/* CARD */
 .card{
     background:white;
     padding:25px;
@@ -53,13 +64,9 @@ header p{
     border-radius:15px;
     box-shadow:0 6px 18px rgba(0,0,0,0.12);
     border-left:6px solid #43A047;
-    transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-}
-
+/* TITULOS */
 h2{
     color:#2E7D32;
     margin-bottom:15px;
@@ -69,40 +76,31 @@ h2{
 table{
     width:100%;
     border-collapse:collapse;
-    overflow:hidden;
-    border-radius:10px;
 }
 
 th{
     background:#43A047;
     color:white;
-    padding:14px;
-    text-align:left;
-    font-size:15px;
+    padding:12px;
 }
 
 td{
-    border:1px solid #eee;
-    padding:14px;
-    background:white;
-}
-
-tr:nth-child(even) td{
-    background:#f9f9f9;
+    border:1px solid #ddd;
+    padding:12px;
 }
 
 /* CATAVENTOS */
 .area-cataventos{
     display:flex;
     justify-content:center;
-    gap:50px;
+    gap:40px;
     margin:40px 0;
 }
 
 .catavento{
     position:relative;
     width:100px;
-    height:160px;
+    height:150px;
 }
 
 .helice{
@@ -119,7 +117,6 @@ tr:nth-child(even) td{
     background:#4CAF50;
     border-radius:10px;
     left:41px;
-    transform-origin:center 50px;
 }
 
 .p1{transform:rotate(0deg);}
@@ -151,12 +148,18 @@ tr:nth-child(even) td{
     to{transform:rotate(360deg);}
 }
 
-/* RESPONSIVO */
-@media(max-width:700px){
-    .area-cataventos{
-        flex-direction:column;
-        align-items:center;
-    }
+/* GALERIA */
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.galeria img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
 }
 
 /* FOOTER */
@@ -175,8 +178,13 @@ footer{
 
 <header>
     <h1>🌬 Energia Eólica na Zona Rural</h1>
-    <p>Estudo sobre implementação, viabilidade e sustentabilidade</p>
+    <p>Projeto sustentável de geração de energia limpa</p>
 </header>
+
+<!-- IMAGEM PRINCIPAL -->
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7" alt="Energia Eólica">
+</div>
 
 <div class="container">
 
@@ -220,81 +228,66 @@ footer{
 
 <!-- INTRO -->
 <div class="card">
-    <h2>Introdução</h2>
-    <p>
-        A energia eólica é uma fonte renovável obtida a partir da força dos ventos.
-        Sua aplicação na zona rural permite maior autonomia energética, redução de custos
-        e contribuição para a preservação ambiental.
-    </p>
+<h2>O que é Energia Eólica?</h2>
+<p>
+A energia eólica utiliza a força dos ventos para gerar eletricidade através de aerogeradores.
+É uma fonte limpa, renovável e muito usada em áreas rurais.
+</p>
 </div>
 
 <!-- BENEFICIOS -->
 <div class="card">
-    <h2>Benefícios da Energia Eólica</h2>
-    <ul>
-        <li>Redução de custos com energia elétrica</li>
-        <li>Fonte limpa e renovável</li>
-        <li>Baixo impacto ambiental</li>
-        <li>Independência energética</li>
-        <li>Valorização da propriedade rural</li>
-    </ul>
+<h2>Benefícios</h2>
+<ul>
+<li>Energia limpa e renovável</li>
+<li>Redução de custos</li>
+<li>Baixo impacto ambiental</li>
+<li>Independência energética</li>
+<li>Sustentabilidade no campo</li>
+</ul>
+</div>
+
+<!-- GALERIA -->
+<div class="card">
+<h2>Imagens da Energia Eólica</h2>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1509391366360-2e959784a276">
+<img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
+<img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+
+</div>
+
 </div>
 
 <!-- 5W2H -->
 <div class="card">
-    <h2>Pesquisa 5W2H</h2>
+<h2>Pesquisa 5W2H</h2>
 
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Descrição</th>
-        </tr>
+<table>
 
-        <tr>
-            <td><b>What</b></td>
-            <td>Implementação de energia eólica na zona rural</td>
-        </tr>
+<tr><th>Item</th><th>Descrição</th></tr>
 
-        <tr>
-            <td><b>Why</b></td>
-            <td>Reduzir custos e promover sustentabilidade</td>
-        </tr>
+<tr><td>What</td><td>Implementação de energia eólica na zona rural</td></tr>
+<tr><td>Why</td><td>Reduzir custos e poluição</td></tr>
+<tr><td>Where</td><td>Áreas rurais</td></tr>
+<tr><td>When</td><td>Após estudo técnico</td></tr>
+<tr><td>Who</td><td>Engenheiros e produtores</td></tr>
+<tr><td>How</td><td>Instalação de turbinas eólicas</td></tr>
+<tr><td>How Much</td><td>Depende do projeto</td></tr>
 
-        <tr>
-            <td><b>Where</b></td>
-            <td>Áreas rurais com bom potencial de vento</td>
-        </tr>
-
-        <tr>
-            <td><b>When</b></td>
-            <td>Após estudo de viabilidade técnica</td>
-        </tr>
-
-        <tr>
-            <td><b>Who</b></td>
-            <td>Produtores rurais e empresas de energia</td>
-        </tr>
-
-        <tr>
-            <td><b>How</b></td>
-            <td>Instalação de aerogeradores</td>
-        </tr>
-
-        <tr>
-            <td><b>How Much</b></td>
-            <td>Varia conforme o tamanho do projeto</td>
-        </tr>
-    </table>
+</table>
 
 </div>
 
 <!-- CONCLUSÃO -->
 <div class="card">
-    <h2>Conclusão</h2>
-    <p>
-        A energia eólica representa uma solução sustentável e eficiente para o meio rural,
-        promovendo economia, autonomia energética e preservação ambiental.
-    </p>
+<h2>Conclusão</h2>
+<p>
+A energia eólica é uma solução sustentável que reduz impactos ambientais
+e melhora a economia no campo.
+</p>
 </div>
 
 </div>
@@ -305,10 +298,3 @@ Projeto Escolar • Energia Eólica na Zona Rural
 
 </body>
 </html>
-
-    
-
-
-    
-
-       
