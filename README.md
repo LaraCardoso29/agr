@@ -15,7 +15,7 @@
 }
 
 body{
-    background:linear-gradient(135deg,#FFE082,#FFF3C4);
+    background:linear-gradient(135deg,#FFE082,#FFF8E1);
     color:#333;
 }
 
@@ -25,15 +25,16 @@ header{
     padding:40px 20px;
     background:linear-gradient(90deg,#2E7D32,#43A047);
     color:white;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
 header h1{
-    font-size:38px;
+    font-size:40px;
 }
 
 header p{
     margin-top:10px;
+    font-size:18px;
 }
 
 /* CONTAINER */
@@ -44,15 +45,15 @@ header p{
     padding:30px 0;
 }
 
-/* CARD */
+/* CARDS */
 .card{
     background:white;
     padding:25px;
     margin-bottom:20px;
     border-radius:15px;
     box-shadow:0 6px 18px rgba(0,0,0,0.12);
-    transition:0.3s;
     border-left:6px solid #43A047;
+    transition:0.3s;
 }
 
 .card:hover{
@@ -64,32 +65,37 @@ h2{
     margin-bottom:15px;
 }
 
-p, td{
-    line-height:1.6;
-}
-
 /* TABELA */
 table{
     width:100%;
     border-collapse:collapse;
+    overflow:hidden;
+    border-radius:10px;
 }
 
 th{
     background:#43A047;
     color:white;
-    padding:12px;
+    padding:14px;
+    text-align:left;
+    font-size:15px;
 }
 
 td{
-    border:1px solid #ddd;
-    padding:12px;
+    border:1px solid #eee;
+    padding:14px;
+    background:white;
+}
+
+tr:nth-child(even) td{
+    background:#f9f9f9;
 }
 
 /* CATAVENTOS */
 .area-cataventos{
     display:flex;
     justify-content:center;
-    gap:40px;
+    gap:50px;
     margin:40px 0;
 }
 
@@ -153,6 +159,7 @@ td{
     }
 }
 
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
@@ -168,7 +175,7 @@ footer{
 
 <header>
     <h1>🌬 Energia Eólica na Zona Rural</h1>
-    <p>Pesquisa 5W2H sobre energia limpa e sustentável</p>
+    <p>Estudo sobre implementação, viabilidade e sustentabilidade</p>
 </header>
 
 <div class="container">
@@ -211,14 +218,26 @@ footer{
 
 </div>
 
-<!-- SOBRE -->
+<!-- INTRO -->
 <div class="card">
-    <h2>O que é Energia Eólica?</h2>
+    <h2>Introdução</h2>
     <p>
-        A energia eólica é gerada pela força dos ventos, que movimenta turbinas
-        capazes de produzir eletricidade de forma limpa e sustentável. Na zona rural,
-        ela reduz custos e aumenta a autonomia energética.
+        A energia eólica é uma fonte renovável obtida a partir da força dos ventos.
+        Sua aplicação na zona rural permite maior autonomia energética, redução de custos
+        e contribuição para a preservação ambiental.
     </p>
+</div>
+
+<!-- BENEFICIOS -->
+<div class="card">
+    <h2>Benefícios da Energia Eólica</h2>
+    <ul>
+        <li>Redução de custos com energia elétrica</li>
+        <li>Fonte limpa e renovável</li>
+        <li>Baixo impacto ambiental</li>
+        <li>Independência energética</li>
+        <li>Valorização da propriedade rural</li>
+    </ul>
 </div>
 
 <!-- 5W2H -->
@@ -232,49 +251,49 @@ footer{
         </tr>
 
         <tr>
-            <td><b>What (O quê?)</b></td>
+            <td><b>What</b></td>
             <td>Implementação de energia eólica na zona rural</td>
         </tr>
 
         <tr>
-            <td><b>Why (Por quê?)</b></td>
-            <td>Reduzir custos e promover sustentabilidade ambiental</td>
+            <td><b>Why</b></td>
+            <td>Reduzir custos e promover sustentabilidade</td>
         </tr>
 
         <tr>
-            <td><b>Where (Onde?)</b></td>
-            <td>Áreas rurais com potencial de vento</td>
+            <td><b>Where</b></td>
+            <td>Áreas rurais com bom potencial de vento</td>
         </tr>
 
         <tr>
-            <td><b>When (Quando?)</b></td>
-            <td>Após análise de viabilidade técnica</td>
+            <td><b>When</b></td>
+            <td>Após estudo de viabilidade técnica</td>
         </tr>
 
         <tr>
-            <td><b>Who (Quem?)</b></td>
-            <td>Produtores rurais, engenheiros e empresas do setor</td>
+            <td><b>Who</b></td>
+            <td>Produtores rurais e empresas de energia</td>
         </tr>
 
         <tr>
-            <td><b>How (Como?)</b></td>
-            <td>Instalação de aerogeradores conectados ao sistema elétrico</td>
+            <td><b>How</b></td>
+            <td>Instalação de aerogeradores</td>
         </tr>
 
         <tr>
-            <td><b>How Much (Quanto custa?)</b></td>
-            <td>Depende do tamanho do projeto e infraestrutura necessária</td>
+            <td><b>How Much</b></td>
+            <td>Varia conforme o tamanho do projeto</td>
         </tr>
-
     </table>
+
 </div>
 
 <!-- CONCLUSÃO -->
 <div class="card">
     <h2>Conclusão</h2>
     <p>
-        A energia eólica é uma solução sustentável e eficiente para o meio rural,
-        promovendo economia, autonomia energética e preservação do meio ambiente.
+        A energia eólica representa uma solução sustentável e eficiente para o meio rural,
+        promovendo economia, autonomia energética e preservação ambiental.
     </p>
 </div>
 
@@ -286,3 +305,10 @@ Projeto Escolar • Energia Eólica na Zona Rural
 
 </body>
 </html>
+
+    
+
+
+    
+
+       
