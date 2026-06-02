@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Energia Eólica na Zona Rural</title>
+<title>Dashboard - Energia Eólica na Zona Rural</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -16,135 +16,94 @@
     font-family:'Segoe UI',sans-serif;
 }
 
-/* FUNDO */
 body{
-    background:linear-gradient(135deg,#FFE082,#FFF3C4);
-    color:#333;
-}
-
-/* TELA INICIAL */
-#intro{
-    height:100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#2E7D32,#66BB6A);
+    min-height:100vh;
+    background:#f5f7f2;
+}
+
+/* MENU LATERAL */
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#2E7D32,#43A047);
     color:white;
+    padding:20px;
 }
 
-#intro h1{
-    font-size:48px;
-    margin-bottom:15px;
-}
-
-#intro p{
-    font-size:18px;
-    max-width:600px;
+.sidebar h2{
+    text-align:center;
     margin-bottom:30px;
 }
 
-button{
-    padding:15px 30px;
-    font-size:18px;
+.menu button{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
     border:none;
-    border-radius:30px;
+    border-radius:10px;
     cursor:pointer;
-    background:#FFD54F;
-    color:#333;
     font-weight:bold;
+    background:rgba(255,255,255,0.15);
+    color:white;
     transition:0.3s;
 }
 
-button:hover{
-    transform:scale(1.05);
+.menu button:hover{
+    background:rgba(255,255,255,0.3);
 }
 
-/* DASHBOARD */
-#dashboard{
+/* CONTEÚDO */
+.content{
+    flex:1;
+    padding:25px;
+}
+
+/* SEÇÕES */
+.section{
     display:none;
+    animation:fade 0.4s ease-in-out;
 }
 
-/* HEADER */
-header{
-    background:linear-gradient(90deg,#2E7D32,#43A047);
-    color:white;
-    text-align:center;
-    padding:30px;
+.active{
+    display:block;
 }
 
-header h1{
-    font-size:38px;
-}
-
-/* CONTAINER */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:25px 0;
+@keyframes fade{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* CARDS */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:25px;
+    gap:15px;
+    margin-bottom:20px;
 }
 
 .card{
     background:white;
     padding:20px;
     border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
     text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,0.12);
-    border-top:5px solid #43A047;
-}
-
-.card h3{
-    color:#2E7D32;
+    border-top:4px solid #43A047;
 }
 
 .numero{
-    font-size:32px;
+    font-size:28px;
     font-weight:bold;
     color:#F9A825;
     margin-top:10px;
-}
-
-/* SEÇÕES */
-.section{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.1);
-}
-
-.section h2{
-    color:#2E7D32;
-    margin-bottom:15px;
-}
-
-/* GRAFICOS */
-.graficos{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-canvas{
-    background:white;
-    padding:10px;
-    border-radius:15px;
 }
 
 /* TABELA */
 table{
     width:100%;
     border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
 }
 
 th{
@@ -158,8 +117,24 @@ td{
     padding:10px;
 }
 
+/* GRAFICOS */
+.graficos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+canvas{
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
 /* RESPONSIVO */
 @media(max-width:900px){
+    .sidebar{
+        width:200px;
+    }
     .graficos{
         grid-template-columns:1fr;
     }
@@ -170,77 +145,90 @@ td{
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <h1>🌬 Energia Eólica</h1>
-    <p>Projeto sobre implementação de energia eólica na zona rural com gráficos, indicadores e análise 5W2H.</p>
-    <button id="btnIniciar">Iniciar Projeto</button>
+<!-- MENU -->
+<div class="sidebar">
+<h2>🌬 Energia Eólica</h2>
+
+<div class="menu">
+<button onclick="mostrar('inicio')">Início</button>
+<button onclick="mostrar('indicadores')">Indicadores</button>
+<button onclick="mostrar('graficos')">Gráficos</button>
+<button onclick="mostrar('cinco')">5W2H</button>
+<button onclick="mostrar('conclusao')">Conclusão</button>
+</div>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard">
+<!-- CONTEÚDO -->
+<div class="content">
 
-<header>
-    <h1>Implementação da Energia Eólica na Zona Rural</h1>
-</header>
+<!-- INICIO -->
+<div id="inicio" class="section active">
+<h1>🌾 Energia Eólica na Zona Rural</h1>
+<br>
+<p>
+Este painel apresenta um estudo sobre a implementação da energia eólica na zona rural,
+abordando viabilidade, impacto ambiental e benefícios econômicos.
+</p>
+</div>
 
-<div class="container">
+<!-- INDICADORES -->
+<div id="indicadores" class="section">
+
+<h2>Indicadores</h2>
+<br>
 
 <div class="cards">
 
 <div class="card">
-    <h3>Economia</h3>
-    <div class="numero">35%</div>
+<h3>Economia</h3>
+<div class="numero">35%</div>
 </div>
 
 <div class="card">
-    <h3>CO₂ Reduzido</h3>
-    <div class="numero">25t/ano</div>
+<h3>CO₂ Reduzido</h3>
+<div class="numero">25t/ano</div>
 </div>
 
 <div class="card">
-    <h3>Retorno</h3>
-    <div class="numero">6 anos</div>
+<h3>Retorno</h3>
+<div class="numero">6 anos</div>
 </div>
 
 <div class="card">
-    <h3>Eficiência</h3>
-    <div class="numero">95%</div>
+<h3>Eficiência</h3>
+<div class="numero">95%</div>
 </div>
 
 </div>
 
-<div class="section">
-<h2>Introdução</h2>
-<p>
-A energia eólica é uma fonte renovável que utiliza a força dos ventos para gerar eletricidade,
-promovendo sustentabilidade e redução de custos na zona rural.
-</p>
 </div>
+
+<!-- GRAFICOS -->
+<div id="graficos" class="section">
+
+<h2>Gráficos de Análise</h2>
+<br>
 
 <div class="graficos">
 
-<div class="section">
-<h2>Economia ao Longo dos Anos</h2>
 <canvas id="grafico1"></canvas>
-</div>
-
-<div class="section">
-<h2>Impacto Ambiental</h2>
 <canvas id="grafico2"></canvas>
-</div>
 
 </div>
 
-<div class="section">
+</div>
+
+<!-- 5W2H -->
+<div id="cinco" class="section">
 
 <h2>Pesquisa 5W2H</h2>
+<br>
 
 <table>
 <tr><th>Item</th><th>Descrição</th></tr>
 <tr><td>What</td><td>Energia eólica na zona rural</td></tr>
 <tr><td>Why</td><td>Reduzir custos e impacto ambiental</td></tr>
-<tr><td>Where</td><td>Áreas rurais</td></tr>
+<tr><td>Where</td><td>Propriedades rurais</td></tr>
 <tr><td>When</td><td>Após estudo técnico</td></tr>
 <tr><td>Who</td><td>Engenheiros e produtores</td></tr>
 <tr><td>How</td><td>Instalação de aerogeradores</td></tr>
@@ -249,26 +237,33 @@ promovendo sustentabilidade e redução de custos na zona rural.
 
 </div>
 
-<div class="section">
+<!-- CONCLUSÃO -->
+<div id="conclusao" class="section">
+
 <h2>Conclusão</h2>
+<br>
+
 <p>
-A energia eólica é uma solução sustentável e eficiente para o meio rural,
-trazendo economia e preservação ambiental.
+A energia eólica é uma alternativa sustentável e eficiente para o meio rural,
+promovendo economia, autonomia energética e preservação ambiental.
 </p>
-</div>
 
 </div>
+
 </div>
 
 <script>
 
-/* BOTÃO FUNCIONANDO */
-document.getElementById("btnIniciar").addEventListener("click", function(){
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-});
+/* MENU */
+function mostrar(id){
 
-/* GRÁFICO 1 */
+    let secoes = document.querySelectorAll('.section');
+    secoes.forEach(s => s.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+}
+
+/* GRAFICO 1 */
 new Chart(document.getElementById('grafico1'),{
 type:'bar',
 data:{
@@ -281,7 +276,7 @@ backgroundColor:'#43A047'
 }
 });
 
-/* GRÁFICO 2 */
+/* GRAFICO 2 */
 new Chart(document.getElementById('grafico2'),{
 type:'doughnut',
 data:{
@@ -297,6 +292,3 @@ backgroundColor:['#43A047','#FDD835','#1E88E5','#FB8C00','#424242']
 
 </body>
 </html>
-
-
-
