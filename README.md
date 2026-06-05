@@ -1,112 +1,120 @@
-const menuBtn =
-document.getElementById("menuBtn");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const nav =
-document.getElementById("nav");
+<title>Eólica News | Energia Sustentável</title>
 
-menuBtn.addEventListener("click",()=>{
+<link rel="stylesheet" href="style.css">
 
-nav.classList.toggle("active");
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-});
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-const themeBtn =
-document.getElementById("themeToggle");
+<body>
 
-const body =
-document.body;
+<header class="topbar">
 
-if(localStorage.getItem("theme")==="dark"){
+<div class="logo">🌬️ Eólica<span>News</span></div>
 
-body.classList.add("dark");
-themeBtn.textContent="☀️";
+<nav id="nav">
+<a href="#feed">Notícias</a>
+<a href="#pesquisa">Pesquisa</a>
+<a href="#grafico">Gráfico</a>
+</nav>
 
-}
+<div class="actions">
+<button id="themeToggle">🌙</button>
+<button id="menuBtn">☰</button>
+</div>
 
-themeBtn.addEventListener("click",()=>{
+</header>
 
-body.classList.toggle("dark");
+<!-- HERO -->
+<section class="hero">
 
-const dark =
-body.classList.contains("dark");
+<div class="hero-overlay">
 
-localStorage.setItem(
-"theme",
-dark ? "dark":"light"
-);
+<div class="hero-content">
 
-themeBtn.textContent=
-dark ? "☀️":"🌙";
+<span class="badge">ENERGIA LIMPA</span>
 
-});
+<h1>Energia Eólica transforma o futuro do campo brasileiro</h1>
 
-const noticias = [
-
-{
-titulo:"Energia Eólica Cresce no Campo",
-descricao:"A energia dos ventos tem reduzido significativamente os custos energéticos das propriedades rurais.",
-imagem:"https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=800&q=80"
-},
-
-{
-titulo:"Sustentabilidade em Alta",
-descricao:"Fontes renováveis ajudam produtores a reduzir impactos ambientais.",
-imagem:"https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80"
-},
-
-{
-titulo:"Autonomia Energética Rural",
-descricao:"Aerogeradores permitem menor dependência da rede elétrica convencional.",
-imagem:"https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80"
-},
-
-{
-titulo:"Empregos Verdes",
-descricao:"A expansão da energia eólica gera novas oportunidades de trabalho.",
-imagem:"https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80"
-},
-
-{
-titulo:"Tecnologia e Inovação",
-descricao:"Novos sistemas aumentam a eficiência da geração de energia.",
-imagem:"https://images.unsplash.com/photo-1497436072909-f5e4be5584d2?auto=format&fit=crop&w=800&q=80"
-},
-
-{
-titulo:"Futuro do Agronegócio",
-descricao:"A combinação entre tecnologia e sustentabilidade fortalece o campo.",
-imagem:"https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80"
-}
-
-];
-
-const container =
-document.getElementById("newsContainer");
-
-noticias.forEach(noticia=>{
-
-container.innerHTML += `
-
-<div class="card">
-
-<img src="${noticia.imagem}" alt="${noticia.titulo}">
-
-<div class="card-content">
-
-<h3>${noticia.titulo}</h3>
-
-<p>${noticia.descricao}</p>
+<p>
+Sustentabilidade, economia e autonomia energética para o agronegócio moderno.
+</p>
 
 </div>
 
 </div>
 
-`;
+</section>
 
-});
+<!-- NOTÍCIAS -->
+<section id="feed" class="section">
 
+<h2>📰 Últimas Notícias</h2>
 
+<div id="newsContainer" class="grid"></div>
 
+</section>
+
+<!-- PESQUISA -->
+<section id="pesquisa" class="section article">
+
+<h2>📖 Pesquisa: Energia Eólica na Zona Rural</h2>
+
+<img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80">
+
+<h3>Introdução</h3>
+<p>
+A energia eólica utiliza o vento para gerar eletricidade por meio de aerogeradores.
+No meio rural, ela reduz custos e aumenta a independência energética.
+</p>
+
+<h3>Importância</h3>
+<p>
+É uma fonte limpa, renovável e essencial para reduzir impactos ambientais.
+</p>
+
+<h3>5W2H</h3>
+<p>
+What: Implementar energia eólica<br>
+Why: Reduzir custos e aumentar sustentabilidade<br>
+Where: Zona rural<br>
+When: Após viabilidade<br>
+Who: Produtores e engenheiros<br>
+How: Aerogeradores<br>
+How Much: Variável
+</p>
+
+<h3>Conclusão</h3>
+<p>
+A energia eólica é fundamental para o futuro sustentável do agronegócio.
+</p>
+
+</section>
+
+<!-- GRAFICO -->
+<section id="grafico" class="section">
+
+<h2>📊 Índice de Benefícios</h2>
+
+<canvas id="chart"></canvas>
+
+</section>
+
+<footer>
+<p>© 2026 Eólica News — Energia limpa e futuro sustentável</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
 
 
 
